@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -15,54 +15,74 @@ body {
 }
 
 .license-container {
-  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-  color: white;
+  background: white;
+  color: #333;
   border-radius: 15px;
-  padding: 25px;
+  padding: 0;
   width: 100%;
   max-width: 600px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border: 1px solid #ddd;
+  position: relative;
 }
 
 .license-header {
+  background: linear-gradient(to right, #009e49, #fcd116, #3a75c4);
+  color: white;
   text-align: center;
-  margin-bottom: 25px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 15px;
+  padding: 20px;
+  position: relative;
+}
+
+.license-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #009e49 33%, #fcd116 33%, #fcd116 66%, #3a75c4 66%);
 }
 
 .license-header h1 {
   font-size: 24px;
   margin-bottom: 5px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .license-header h2 {
   font-size: 20px;
   font-weight: normal;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .license-body {
   display: flex;
-  gap: 25px;
-  margin-bottom: 25px;
+  gap: 20px;
+  padding: 25px;
 }
 
 .license-photo {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .photo-placeholder {
   width: 120px;
   height: 150px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 2px dashed rgba(255, 255, 255, 0.5);
+  background-color: #f8f9fa;
+  border: 2px solid #ddd;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  color: #6c757d;
+  font-size: 14px;
 }
 
 .license-details {
@@ -73,24 +93,47 @@ body {
   display: flex;
   margin-bottom: 10px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #eee;
 }
 
 .label {
   font-weight: bold;
   min-width: 150px;
+  color: #2c3e50;
 }
 
 .value {
   flex: 1;
+  color: #34495e;
 }
 
 .license-footer {
   text-align: center;
-  border-top: 2px solid rgba(255, 255, 255, 0.3);
-  padding-top: 15px;
+  border-top: 1px solid #eee;
+  padding: 15px;
   font-size: 14px;
-  opacity: 0.8;
+  color: #7f8c8d;
+  background-color: #f8f9fa;
+}
+
+/* Color accents using Gabon flag colors */
+.label::after {
+  content: ":";
+}
+
+.detail-row:nth-child(3n+1) .value {
+  color: #009e49; /* Green */
+  font-weight: 500;
+}
+
+.detail-row:nth-child(3n+2) .value {
+  color: #3a75c4; /* Blue */
+  font-weight: 500;
+}
+
+.detail-row:nth-child(3n+3) .value {
+  color: #e67e22; /* Orange accent instead of yellow for better readability */
+  font-weight: 500;
 }
 
 /* Responsive design */
@@ -100,10 +143,35 @@ body {
   }
   
   .license-container {
-    padding: 15px;
+    margin: 10px;
   }
   
   .label {
     min-width: 120px;
   }
+}
+
+/* Add some Gabon flag elements as decorative touches */
+.license-container::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #009e49 33%, #fcd116 33%, #fcd116 66%, #3a75c4 66%);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.license-container::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #009e49 33%, #fcd116 33%, #fcd116 66%, #3a75c4 66%);
+  border-radius: 50%;
+  opacity: 0.7;
 }
