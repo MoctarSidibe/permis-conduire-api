@@ -20,15 +20,39 @@ body {
   border-radius: 15px;
   padding: 0;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   border: 1px solid #ddd;
   position: relative;
 }
 
-.license-header {
+/* Different header colors for each license type */
+.permis .license-header {
   background: linear-gradient(to right, #009e49, #fcd116, #3a75c4);
+}
+
+.ltm .license-header {
+  background: linear-gradient(to right, #2c3e50, #34495e, #7f8c8d);
+}
+
+.aca .license-header {
+  background: linear-gradient(to right, #16a085, #27ae60, #2ecc71);
+}
+
+.recepisse .license-header {
+  background: linear-gradient(to right, #8e44ad, #9b59b6, #3498db);
+}
+
+.certificat .license-header {
+  background: linear-gradient(to right, #d35400, #e67e22, #f39c12);
+}
+
+.fiche .license-header {
+  background: linear-gradient(to right, #c0392b, #e74c3c, #e67e22);
+}
+
+.license-header {
   color: white;
   text-align: center;
   padding: 20px;
@@ -42,7 +66,7 @@ body {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(to right, #009e49 33%, #fcd116 33%, #fcd116 66%, #3a75c4 66%);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .license-header h1 {
@@ -60,33 +84,11 @@ body {
 }
 
 .license-body {
-  display: flex;
-  gap: 20px;
   padding: 25px;
 }
 
-.license-photo {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.photo-placeholder {
-  width: 120px;
-  height: 150px;
-  background-color: #f8f9fa;
-  border: 2px solid #ddd;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  color: #6c757d;
-  font-size: 14px;
-}
-
 .license-details {
-  flex: 2;
+  width: 100%;
 }
 
 .detail-row {
@@ -98,7 +100,7 @@ body {
 
 .label {
   font-weight: bold;
-  min-width: 150px;
+  min-width: 250px;
   color: #2c3e50;
 }
 
@@ -132,22 +134,38 @@ body {
 }
 
 .detail-row:nth-child(3n+3) .value {
-  color: #e67e22; /* Orange accent instead of yellow for better readability */
+  color: #e67e22; /* Orange accent */
   font-weight: 500;
 }
 
 /* Responsive design */
-@media (max-width: 650px) {
-  .license-body {
-    flex-direction: column;
-  }
-  
+@media (max-width: 768px) {
   .license-container {
     margin: 10px;
+    max-width: 100%;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    margin-bottom: 15px;
   }
   
   .label {
-    min-width: 120px;
+    min-width: 100%;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .value {
+    font-size: 16px;
+  }
+  
+  .license-header h1 {
+    font-size: 20px;
+  }
+  
+  .license-header h2 {
+    font-size: 16px;
   }
 }
 
@@ -162,6 +180,7 @@ body {
   background: linear-gradient(135deg, #009e49 33%, #fcd116 33%, #fcd116 66%, #3a75c4 66%);
   border-radius: 50%;
   opacity: 0.7;
+  z-index: 1;
 }
 
 .license-container::after {
@@ -174,4 +193,5 @@ body {
   background: linear-gradient(135deg, #009e49 33%, #fcd116 33%, #fcd116 66%, #3a75c4 66%);
   border-radius: 50%;
   opacity: 0.7;
+  z-index: 1;
 }
